@@ -1,7 +1,7 @@
 # start - slim 3
 ###Installa 
 
-`composer require phpner/start-slim`
+`composer create-project phpner/start-slim` name
 
 will download dependencies : 
 ```javascript

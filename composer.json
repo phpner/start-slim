@@ -1,5 +1,6 @@
 {
     "name": "phpner/start-slim",
+    "type": "project",
     "description": "Skeleton of slim 3 with webpack and laravel Eloquent, laravel template blabe and so on",
     "keywords": ["slim", "template" , "skeleton"],
     "license": "MIT",
