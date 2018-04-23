@@ -9,16 +9,9 @@
     <title>Document</title>
 </head>
 <body>
-<h1>Main page !!!</h1>
 @section('sidebar')
-
-    This is the master sidebar
+    @include('header')
 @show
-
-<div class="container">
-    @yield('content')
-</div>
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab consequuntur dolore eos magni, minus mollitia quaerat quis recusandae vero? Cum eius et modi. Aperiam distinctio facilis ipsum iusto magnam nemo.
 <script src="../../public/assets/js/main.js"></script>
 </body>
 </html>
