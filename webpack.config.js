@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const WebpackNotifierPlugin = require('webpack-notifier');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
     entry: [
@@ -27,7 +28,10 @@ module.exports = {
                 use: ExtractTextPlugin.extract({
                     fallback: "style-loader",
                     use: [
-                          'css-loader',
+                        {
+                            loader : "css-loader",
+                            options: { minimize: true}
+                        },
                           'scss-loader',
                         {
                             loader: 'postcss-loader',
@@ -58,7 +62,7 @@ module.exports = {
     },
     plugins: [
         new WebpackNotifierPlugin(),
-        new ExtractTextPlugin("css/[name].css"),
+        new ExtractTextPlugin("css/[name].css",{allChunks: true}),
         new webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery',
@@ -66,10 +70,19 @@ module.exports = {
             _:"underscore",
             Backbone: 'backbone'
         }),
+        new UglifyJsPlugin({
+            uglifyOptions: {
+                output: {
+                    comments: false,
+                    beautify: false,
+
+                }
+            }
+        }),
         new BrowserSyncPlugin({
-            host: 'test.ru',
+            host: 'verst-2.ru',
             port: 3000,
-            proxy: 'test.ru',
+            proxy: 'verst-2.ru',
             files: ["public/assets/**/*.css","public/assets/js/*.js","App/View/**.php"]
         })
     ]
