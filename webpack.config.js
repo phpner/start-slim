@@ -80,9 +80,9 @@ module.exports = {
             }
         }),
         new BrowserSyncPlugin({
-            host: 'verst-2.ru',
+            host: 'verst-.ru',
             port: 3000,
-            proxy: 'verst-2.ru',
+            proxy: 'verst-4.ru',
             files: ["public/assets/**/*.css","public/assets/js/*.js","App/View/**.php"]
         })
     ]
